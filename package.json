@@ -16,7 +16,7 @@
   "author": "HC Temple Team",
   "license": "ISC",
   "dependencies": {
-    "node-cron": "^3.0.3",
-    "venom-bot": "^5.3.0"
+    "@whiskeysockets/baileys": "^6.7.1",
+    "qrcode-terminal": "^0.12.0"
   }
 }
