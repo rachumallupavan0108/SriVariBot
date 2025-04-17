@@ -28,10 +28,11 @@ venom
     session: 'temple-bot',
     multidevice: true,
     browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
-    puppeteerOptions: {
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+     puppeteerOptions: {
+      headless: 'new',
+      executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
     }
+
   })
   .then((client) => start(client))
   .catch((err) => console.error('❌ Error launching bot:', err));
