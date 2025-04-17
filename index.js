@@ -18,7 +18,7 @@ const BHAJAN_TEXT = `🕉️ *Daily Quote*\n\n"Govinda Govinda!"\nMay Lord Venka
 
 // 🔔 Optional: Subscribed Users (can be dynamic or loaded from DB)
 const subscribedUsers = [
-  '918179515577@c.us', // Format: countrycode + number + @c.us
+  '918179515577@c.us',
   '919121747934@c.us'
 ];
 
@@ -29,8 +29,8 @@ venom
     multidevice: true,
     browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
     puppeteerOptions: {
-      headless: 'new',
-      executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox']
     }
   })
   .then((client) => start(client))
@@ -38,7 +38,6 @@ venom
 
 // 🤖 Main Bot Function
 function start(client) {
-  // 💬 Handle Incoming Messages
   client.onMessage(async (message) => {
     const msg = message.body.trim().toLowerCase();
     const sender = message.from;
@@ -52,8 +51,7 @@ function start(client) {
     console.log(`📩 Message from ${sender}: ${message.body}`);
 
     switch (true) {
-      // 🙏 Welcome + Logo
-      case (msg === 'jai' || msg === '🙏 Hai'):
+      case (msg === 'jai' || msg === '🙏 hai'):
         const logoPath = path.resolve(__dirname, 'SriVaariBotLogo.png');
         await client.sendImage(sender, logoPath, 'SriVaariBotLogo.png', '🛕 *SriVaariBot*');
         await client.sendText(sender, MENU_TEXT);
@@ -96,7 +94,7 @@ function start(client) {
     }
   });
 
-  // 🕖 Scheduled Bhajan Message (optional)
+  // 🕖 Scheduled Bhajan Message
   cron.schedule('23 * * *', async () => {
     console.log('🔔 Sending daily bhajan message...');
     for (const user of subscribedUsers) {
