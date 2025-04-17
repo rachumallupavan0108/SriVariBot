@@ -1,0 +1,22 @@
+{
+  "name": "temple-whatsapp-bot",
+  "version": "1.0.0",
+  "description": "SriVaariBot - HC Sri Venkateswara Swamy Temple WhatsApp Bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "temple",
+    "whatsapp",
+    "venom-bot",
+    "sri-vaari-bot",
+    "venkateswara"
+  ],
+  "author": "HC Temple Team",
+  "license": "ISC",
+  "dependencies": {
+    "node-cron": "^3.0.3",
+    "venom-bot": "^5.3.0"
+  }
+}
